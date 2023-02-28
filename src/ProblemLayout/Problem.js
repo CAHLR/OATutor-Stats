@@ -285,9 +285,40 @@ class Problem extends React.Component {
         return this.context.problemIDs[this.context.problemIDs.indexOf(this.state.problem.id) + offset] || "/"
     }
 
+    getOerLicense = () => {
+        const { lesson, problem } = this.props;
+        var oerArray, licenseArray;
+        var oerLink, oerName;
+        var licenseLink, licenseName;
+
+        if (problem.oer != null && problem.oer.includes(" <")) {
+            oerArray = problem.oer.split(" <");
+        } else if (lesson.courseOER != null && lesson.courseOER.includes(" ")) {
+            oerArray = lesson.courseOER.split(" <");
+        } else {
+            oerArray = ["https://OATutor.io", "OATutor>"];
+        }
+
+        oerLink = oerArray[0];
+        oerName = oerArray[1].substring(0, oerArray[1].length - 1);
+
+        if (problem.license != null && problem.license.includes(" ")) {
+            licenseArray = problem.license.split(" <");
+        } else if (lesson.courseLicense != null && lesson.courseLicense.includes(" ")) {
+            licenseArray = lesson.courseLicense.split(" <");
+        } else {
+            licenseArray = ["", ""];
+        }
+
+        licenseLink = licenseArray[0];
+        licenseName = licenseArray[1].substring(0, licenseArray[1].length - 1);
+        return [oerLink, oerName, licenseLink, licenseName];
+    }
+
 
     render() {
-        const { classes, lesson } = this.props;
+        const { classes, lesson, problem } = this.props;
+        const [oerLink, oerName, licenseLink, licenseName] = this.getOerLicense();
 
         if (this.state.problem == null) {
             return (<div></div>);
@@ -356,18 +387,19 @@ class Problem extends React.Component {
                 <footer>
                     <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                         <div style={{ marginLeft: 20, fontSize: 12 }}>
-                            {this.state.problem.oer && this.state.problem.oer.includes("openstax") && lesson?.courseName.toLowerCase().includes("openstax") ?
+                            {licenseName !== "" && licenseLink !== "" ?
                                 <div>
-                                    "{this.state.problem.title}" is a derivative of&nbsp;
-                                    <a href="https://openstax.org/" target="_blank" rel="noreferrer">
-                                        "{lesson?.courseName.substring((lesson?.courseName || "").indexOf(":") + 1).trim() || ""}"
-                                    </a>
-                                    &nbsp;by OpenStax, used under&nbsp;
-                                    <a href="https://creativecommons.org/licenses/by/4.0" target="_blank"
-                                       rel="noreferrer">CC
-                                        BY 4.0</a>
+                                    "{problem.title}" is a derivative of&nbsp;
+                                    <a href={oerLink} target="_blank" rel="noreferrer">"{oerName}"</a>
+                                    , used under&nbsp;
+                                    <a href={licenseLink} target="_blank" rel="noreferrer">{licenseName}</a>
                                 </div>
-                                : ""}
+
+                                :<div>
+                                    "{problem.title}" is a derivative of&nbsp;
+                                    <a href={oerLink} target="_blank" rel="noreferrer">"{oerName}"</a>
+                                </div>
+                            }
                         </div>
                         <div style={{ display: "flex", flexGrow: 1, marginRight: 20, justifyContent: "flex-end" }}>
                             <IconButton aria-label="help" title={`How to use ${SITE_NAME}?`}
