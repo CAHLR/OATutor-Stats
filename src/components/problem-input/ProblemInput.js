@@ -1,12 +1,12 @@
 import React, { createRef } from "react";
 import Grid from "@material-ui/core/Grid";
-import EquationEditor from "equation-editor-react";
 import TextField from "@material-ui/core/TextField";
 import MultipleChoice from "./MultipleChoice";
 import GridInput from "./GridInput";
 import MatrixInput from "./MatrixInput";
 import { renderText } from "../../platform-logic/renderText";
 import clsx from "clsx";
+import "mathlive";
 import './ProblemInput.css'
 import { shuffleArray } from "../../util/shuffleArray";
 import { EQUATION_EDITOR_AUTO_COMMANDS, EQUATION_EDITOR_AUTO_OPERATORS, ThemeContext } from "../../config/config";
@@ -22,6 +22,10 @@ class ProblemInput extends React.Component {
         this.equationRef = createRef()
 
         this.onEquationChange = this.onEquationChange.bind(this)
+        
+        this.state = {
+            value: "",
+        };
     }
 
     componentDidMount() {
@@ -95,21 +99,16 @@ class ProblemInput extends React.Component {
                 <Grid item xs={1} md={problemType === "TextBox" ? 4 : false}/>
                 <Grid item xs={9} md={problemType === "TextBox" ? 3 : 12}>
                     {(problemType === "TextBox" && this.props.step.answerType !== "string") && (
-                        <center
-                            ref={this.equationRef}
-                            className={clsx(showCorrectness && state.isCorrect === false && classes.textBoxLatexIncorrect, state.usedHints && classes.textBoxLatexUsedHint, classes.textBoxLatex)}
-                            {...stagingProp({
-                                "data-selenium-target": `arithmetic-answer-${index}`
-                            })}
+                        <math-field 
+                            onInput={evt => this.props.setInputValState(evt.target.value)}
+                            style={{"display": "block"}}
+                            value={(use_expanded_view && debug) ? correctAnswer : state.inputVal}
+                            onChange={this.onEquationChange}
+                            autoCommands={EQUATION_EDITOR_AUTO_COMMANDS}
+                            autoOperatorNames={EQUATION_EDITOR_AUTO_OPERATORS}
                         >
-                            <EquationEditor
-                                value={(use_expanded_view && debug) ? correctAnswer : state.inputVal}
-                                onChange={this.onEquationChange}
-                                style={{ width: "100%" }}
-                                autoCommands={EQUATION_EDITOR_AUTO_COMMANDS}
-                                autoOperatorNames={EQUATION_EDITOR_AUTO_OPERATORS}
-                            />
-                        </center>
+                            </math-field>
+                        
                     )}
                     {(problemType === "TextBox" && this.props.step.answerType === "string") && (
                         <TextField
