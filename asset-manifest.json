@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/OATutor/static/css/main.e9101147.css",
-    "main.js": "/OATutor/static/js/main.bb75b51c.js",
-    "static/media/Symbola.svg": "/OATutor/static/media/Symbola.f647c9292a2da02d9ae8.svg",
-    "static/media/Symbola.eot": "/OATutor/static/media/Symbola.d25fbd520f6558203fb4.eot",
-    "static/media/Symbola.ttf": "/OATutor/static/media/Symbola.1ac5fa7f9b82ed4ce3f3.ttf",
-    "static/media/Symbola.woff": "/OATutor/static/media/Symbola.353fd9bde3c87711f5fc.woff",
-    "static/media/Symbola.woff2": "/OATutor/static/media/Symbola.080d8bb6a36e8bd8966b.woff2",
-    "index.html": "/OATutor/index.html",
-    "main.e9101147.css.map": "/OATutor/static/css/main.e9101147.css.map",
-    "main.bb75b51c.js.map": "/OATutor/static/js/main.bb75b51c.js.map"
+    "main.css": "/OATutor-EquationEditor/static/css/main.893e66fd.css",
+    "main.js": "/OATutor-EquationEditor/static/js/main.a7a3b6df.js",
+    "static/media/Symbola.svg": "/OATutor-EquationEditor/static/media/Symbola.f647c9292a2da02d9ae8.svg",
+    "static/media/Symbola.eot": "/OATutor-EquationEditor/static/media/Symbola.d25fbd520f6558203fb4.eot",
+    "static/media/Symbola.ttf": "/OATutor-EquationEditor/static/media/Symbola.1ac5fa7f9b82ed4ce3f3.ttf",
+    "static/media/Symbola.woff": "/OATutor-EquationEditor/static/media/Symbola.353fd9bde3c87711f5fc.woff",
+    "static/media/Symbola.woff2": "/OATutor-EquationEditor/static/media/Symbola.080d8bb6a36e8bd8966b.woff2",
+    "index.html": "/OATutor-EquationEditor/index.html",
+    "main.893e66fd.css.map": "/OATutor-EquationEditor/static/css/main.893e66fd.css.map",
+    "main.a7a3b6df.js.map": "/OATutor-EquationEditor/static/js/main.a7a3b6df.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9101147.css",
-    "static/js/main.bb75b51c.js"
+    "static/css/main.893e66fd.css",
+    "static/js/main.a7a3b6df.js"
   ]
 }
