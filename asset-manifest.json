@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/OATutor-EquationEditor/static/css/main.893e66fd.css",
-    "main.js": "/OATutor-EquationEditor/static/js/main.6c079101.js",
+    "main.js": "/OATutor-EquationEditor/static/js/main.3f3af62f.js",
     "static/media/Symbola.svg": "/OATutor-EquationEditor/static/media/Symbola.f647c9292a2da02d9ae8.svg",
     "static/media/Symbola.eot": "/OATutor-EquationEditor/static/media/Symbola.d25fbd520f6558203fb4.eot",
     "static/media/Symbola.ttf": "/OATutor-EquationEditor/static/media/Symbola.1ac5fa7f9b82ed4ce3f3.ttf",
@@ -9,10 +9,10 @@
     "static/media/Symbola.woff2": "/OATutor-EquationEditor/static/media/Symbola.080d8bb6a36e8bd8966b.woff2",
     "index.html": "/OATutor-EquationEditor/index.html",
     "main.893e66fd.css.map": "/OATutor-EquationEditor/static/css/main.893e66fd.css.map",
-    "main.6c079101.js.map": "/OATutor-EquationEditor/static/js/main.6c079101.js.map"
+    "main.3f3af62f.js.map": "/OATutor-EquationEditor/static/js/main.3f3af62f.js.map"
   },
   "entrypoints": [
     "static/css/main.893e66fd.css",
-    "static/js/main.6c079101.js"
+    "static/js/main.3f3af62f.js"
   ]
 }
