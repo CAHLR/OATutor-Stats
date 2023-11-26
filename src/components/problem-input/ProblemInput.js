@@ -84,6 +84,8 @@ class ProblemInput extends React.Component {
         const { classes, state, index, showCorrectness, allowRetry, variabilization } = this.props;
         const { use_expanded_view, debug } = this.context;
         let { problemType, stepAnswer, hintAnswer, units } = this.props.step;
+        const keepMCOrder = this.props.keepMCOrder;
+        const keyboardType = this.props.keyboardType;
 
         const problemAttempted = state.isCorrect != null
         const correctAnswer = Array.isArray(stepAnswer) ? stepAnswer[0] : hintAnswer[0]
@@ -92,6 +94,13 @@ class ProblemInput extends React.Component {
         if (this.isMatrixInput()) {
             problemType = "MatrixInput"
         }
+        
+        try {
+            window.mathVirtualKeyboard.layouts = [keyboardType];
+        } catch {
+            window.mathVirtualKeyboard.layouts = ["default"];
+        }
+
 
         return (
             <Grid container spacing={0} justifyContent="center" alignItems="center"
@@ -145,7 +154,18 @@ class ProblemInput extends React.Component {
                         >
                         </textarea>
                     )}
-                    {problemType === "MultipleChoice" && (
+                    {(problemType === "MultipleChoice" && keepMCOrder) && (
+                        <MultipleChoice
+                            onChange={(evt) => this.props.editInput(evt)}
+                            choices={[...this.props.step.choices].reverse()}
+                            index={index}
+                            {...(use_expanded_view && debug) ? {
+                                defaultValue: correctAnswer
+                            } : {}}
+                            variabilization={variabilization}
+                        />
+                    )}
+                    {(problemType === "MultipleChoice" && (keepMCOrder === false || keepMCOrder === null)) && (
                         <MultipleChoice
                             onChange={(evt) => this.props.editInput(evt)}
                             choices={shuffleArray(this.props.step.choices, this.props.seed)}
