@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/OATutor-Stats/static/css/main.3082d721.css",
-    "main.js": "/OATutor-Stats/static/js/main.fcc90761.js",
+    "main.js": "/OATutor-Stats/static/js/main.ae330f87.js",
     "static/media/Symbola.svg": "/OATutor-Stats/static/media/Symbola.f647c9292a2da02d9ae8.svg",
     "static/media/Symbola.eot": "/OATutor-Stats/static/media/Symbola.d25fbd520f6558203fb4.eot",
     "static/media/Symbola.ttf": "/OATutor-Stats/static/media/Symbola.1ac5fa7f9b82ed4ce3f3.ttf",
@@ -9,10 +9,10 @@
     "static/media/Symbola.woff2": "/OATutor-Stats/static/media/Symbola.080d8bb6a36e8bd8966b.woff2",
     "index.html": "/OATutor-Stats/index.html",
     "main.3082d721.css.map": "/OATutor-Stats/static/css/main.3082d721.css.map",
-    "main.fcc90761.js.map": "/OATutor-Stats/static/js/main.fcc90761.js.map"
+    "main.ae330f87.js.map": "/OATutor-Stats/static/js/main.ae330f87.js.map"
   },
   "entrypoints": [
     "static/css/main.3082d721.css",
-    "static/js/main.fcc90761.js"
+    "static/js/main.ae330f87.js"
   ]
 }
